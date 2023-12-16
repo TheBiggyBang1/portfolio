@@ -206,6 +206,7 @@ header nav .search i {
   height: 50vh;
   width: 100vw;
   padding: 100px;
+  margin-top: 50px;
 }
 
 .about h1 {
@@ -235,6 +236,65 @@ header nav .search i {
 .about .description p span {
   color: #fec86a;
 }
+/* Style du formulaire */
+.about form {
+  justify-content: center;
+  font-family: "Libre Baskerville", sans-serif;
+  background-color: #fec86a;
+  padding: 50px 100px;
+  border-radius: 8px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Style des labels */
+.about label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Style des champs de saisie */
+input[type="text"],
+input[type="email"],
+select,
+ textarea {
+  color: #fff;
+  background-color: #3d3e42;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+/* Style du bouton Envoyer */
+.about input[type="submit"] {
+  background-color: #3d3e42;
+  color: #ffffff;
+  border-color: #000;
+  padding: 10px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Libre Baskerville", sans-serif;
+}
+
+/* Style du bouton Envoyer au survol */
+.about input[type="submit"]:hover {
+  background-color: #0000;
+}
+
+/* Style pour le message de confirmation */
+#messageSent {
+  margin-top: 550px;
+  padding: 10px;
+  margin-left: -370px;
+  border-radius: 5px;
+  background-color: #d4edda;
+  color: #155724;
+  display: none; /* Le message de confirmation est masqué par défaut */
+}
+
 
 .skills {
   display: flex;
