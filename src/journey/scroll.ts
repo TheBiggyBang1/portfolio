@@ -29,6 +29,14 @@ let intent = 0
 let lastWheelAt = 0
 let lastWheelMag = 0
 let lastTouchDelta = 0
+/**
+ * The current swipe. Where it started decides what it does: a swipe that starts at
+ * the edge of a stop plays the transition; one that starts mid-zone only scrolls the
+ * text, stopping at the edge, so the *next* swipe moves on.
+ */
+const swipe = { atStart: true, atEnd: true, total: 0, done: false }
+/** Pixels of slack when deciding a reading zone's edge is reached (layout can shift a little). */
+const EDGE = 8
 
 const cinematic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 
@@ -103,36 +111,54 @@ function onVirtualScroll({ deltaY, event }: { deltaY: number; event: WheelEvent 
   if (event.cancelable && (type === 'wheel' || type === 'touchmove')) event.preventDefault()
 
   if (type === 'touchstart') {
-    gestureSpent = false
-    intent = 0
+    const s = stops[current]
+    const y = lenis.targetScroll
+    swipe.atStart = !s || y <= s.start + EDGE
+    swipe.atEnd = !s || y >= s.end - EDGE
+    swipe.total = 0
+    swipe.done = transitioning
+    lastTouchDelta = 0
     return false
   }
   if (type === 'touchend') {
-    if (!transitioning && !gestureSpent) scrollWithin(lastTouchDelta * 10, false)
+    // A little momentum inside a reading zone (clamped to its edge).
+    if (!transitioning && !swipe.done) scrollWithin(lastTouchDelta * 10, false)
+    return false
+  }
+  if (type === 'touchmove') {
+    if (swipe.done || transitioning || deltaY === 0) return false
+    swipe.total += deltaY
+    lastTouchDelta = deltaY
+    const dir = Math.sign(swipe.total)
+    const s = stops[current]
+    const y = lenis.targetScroll
+    const fromEdge = dir > 0 ? swipe.atEnd && (!s || y >= s.end - EDGE) : swipe.atStart && (!s || y <= s.start + EDGE)
+    if (!fromEdge) {
+      scrollWithin(deltaY, true)
+      return false
+    }
+    if (Math.abs(swipe.total) >= MOTION.snap.touchThreshold) {
+      swipe.done = true
+      goTo(current + dir)
+    }
     return false
   }
 
-  const isTouch = type === 'touchmove'
-  if (isTouch) {
-    lastTouchDelta = deltaY
-  } else {
-    // A pause in the wheel stream, or a clearly harder flick once the transition is
-    // over, starts a new gesture. Trackpad inertia (smoothly decaying) never does.
-    const now = performance.now()
-    const mag = Math.abs(deltaY)
-    const paused = now - lastWheelAt > 220
-    if (paused || (!transitioning && mag > lastWheelMag * 1.6 + 6)) gestureSpent = false
-    if (paused) intent = 0
-    lastWheelAt = now
-    lastWheelMag = mag
-  }
+  // Wheel: a pause in the stream, or a clearly harder flick once the transition is
+  // over, starts a new gesture. Trackpad inertia (smoothly decaying) never does.
+  const now = performance.now()
+  const mag = Math.abs(deltaY)
+  const paused = now - lastWheelAt > 220
+  if (paused || (!transitioning && mag > lastWheelMag * 1.6 + 6)) gestureSpent = false
+  if (paused) intent = 0
+  lastWheelAt = now
+  lastWheelMag = mag
 
   if (transitioning || gestureSpent || deltaY === 0) return false
-  if (scrollWithin(deltaY, isTouch)) return false
+  if (scrollWithin(deltaY, false)) return false
 
   intent = Math.sign(intent) === Math.sign(deltaY) ? intent + deltaY : deltaY
-  const threshold = isTouch ? MOTION.snap.touchThreshold : MOTION.snap.wheelThreshold
-  if (Math.abs(intent) < threshold) return false
+  if (Math.abs(intent) < MOTION.snap.wheelThreshold) return false
   const dir = Math.sign(intent)
   intent = 0
   gestureSpent = true
