@@ -15,6 +15,13 @@ html.is-locked {
   overflow: hidden;
 }
 
+/* While snapping is on (Lenis), swipes are ours: the browser must never pan the
+   page itself (a busy phone may ignore preventDefault and fling past a stop).
+   Pinch-zoom still works. Reduced motion has no Lenis, so it scrolls natively. */
+html.lenis {
+  touch-action: pinch-zoom;
+}
+
 body {
   margin: 0;
   background: var(--cream);
@@ -322,6 +329,7 @@ button:focus-visible .roll__char {
   clip-path: inset(0 0 100% 0);
   visibility: hidden;
   overflow-y: auto;
+  touch-action: pan-y pinch-zoom;
   transition:
     clip-path 0.85s var(--ease-in-out),
     visibility 0s linear 0.85s;

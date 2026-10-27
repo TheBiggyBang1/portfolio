@@ -54,12 +54,20 @@ function nearestStop(y: number) {
 /**
  * Plays the transition to a stop. Scrolling back up lands at the bottom of a reading
  * zone (as if reading backwards); jumps (menu, links) always open a section at its top.
+ * Settling back into the current stop returns to its nearest edge.
  */
 function goTo(index: number, duration?: number, jump = false) {
   if (!lenis || stops.length === 0) return
   const i = Math.min(Math.max(index, 0), stops.length - 1)
   const from = current
-  const target = i < from && !jump ? stops[i].end : stops[i].start
+  const s = stops[i]
+  const target = jump
+    ? s.start
+    : i === from
+      ? Math.min(Math.max(lenis.scroll, s.start), s.end)
+      : i < from
+        ? s.end
+        : s.start
   current = i
   if (Math.abs(target - lenis.scroll) < 1) return
   const hops = Math.max(1, Math.abs(i - from))
@@ -173,7 +181,14 @@ function settle() {
     current = inside
     return
   }
-  goTo(nearestStop(y), 0.9)
+  // A short overshoot past the current stop (e.g. a native fling on a phone) means
+  // "next": move on in that direction instead of bouncing back to where it started.
+  const nearest = nearestStop(y)
+  const s = stops[current]
+  const push = MOTION.snap.touchThreshold
+  const dir = nearest === current && s ? (y > s.end + push ? 1 : y < s.start - push ? -1 : 0) : 0
+  if (dir) goTo(current + dir)
+  else goTo(nearest, 0.9)
 }
 
 /**
