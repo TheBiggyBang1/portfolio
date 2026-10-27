@@ -1,0 +1,52 @@
+/*
+  Design tokens. The 3D scenes read these same variables at runtime
+  (src/lib/palette.ts), so changing a color here re-tints the whole world.
+*/
+:root {
+  /* Palette */
+  --cream: #f3eedf;
+  --cream-deep: #e6dfc8;
+  --olive-ink: #232b17;
+  --olive: #6b7a3a;
+  --olive-light: #a3ae72;
+  --jade: #2e9e7a;
+  --jade-light: #9fd8c2;
+
+  /* Semantic */
+  --bg: var(--cream);
+  --surface: var(--cream-deep);
+  --text: var(--olive-ink);
+  --text-muted: var(--olive);
+  --border: color-mix(in srgb, var(--olive) 35%, transparent);
+  --accent: var(--jade);
+  --glow: var(--jade-light);
+  --cta-gradient: linear-gradient(120deg, var(--olive) 0%, var(--jade) 100%);
+
+  /* Type */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-body: 'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-label: 0.75rem;
+  --fs-small: 0.875rem;
+  --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --fs-h2: clamp(2.4rem, 1.6rem + 3.6vw, 4.75rem);
+  --fs-hero: clamp(3.4rem, 1.8rem + 8vw, 9.5rem);
+
+  /* Layout */
+  --gutter: clamp(16px, 4vw, 56px);
+  --nav-h: 72px;
+  --radius: 18px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Chapter 06 is a dusk chapter: the page flips to dark ink around it. */
+[data-theme='dark'] {
+  --bg: var(--olive-ink);
+  --text: var(--cream);
+  --text-muted: var(--olive-light);
+  --border: color-mix(in srgb, var(--olive-light) 35%, transparent);
+}

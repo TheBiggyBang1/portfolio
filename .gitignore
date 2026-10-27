@@ -1,0 +1,14 @@
+node_modules
+dist
+*.local
+.env
+*.log
+.DS_Store
+
+# Editor / assistant tooling
+.claude/
+.vscode/
+
+# Original source assets (large, not shipped; public/ holds the optimized copies)
+/logo_3d.glb
+/logo.svg

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mehdi Handous — AI engineer & web designer</title>
+    <meta
+      name="description"
+      content="Mehdi Handous, 25, AI engineering student who loves web design. A scroll-driven story through speech, agents, vision and craft."
+    />
+    <meta name="theme-color" content="#F3EEDF" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
+    <!-- Open Graph / social. The site URL below is filled in at build time (vite.config.ts). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mehdi Handous — AI engineer & web designer" />
+    <meta
+      property="og:description"
+      content="A scroll-driven story through speech recognition, autonomous agents, medical vision and craft."
+    />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mehdi Handous: his jade 3D logo above his name on a soft cream sky." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mehdi Handous — AI engineer & web designer" />
+    <meta name="twitter:description" content="A scroll-driven story through speech, agents, vision and craft." />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Manrope:wght@400..700&display=swap"
+    />
+    <link rel="preload" href="/logo.glb" as="fetch" type="model/gltf-binary" crossorigin />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: sans-serif">
+        Mehdi Handous — AI engineering student who loves web design. This site needs JavaScript for its 3D story.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
