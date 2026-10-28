@@ -11,7 +11,7 @@ import { CraftAndContact, Footer } from './components/sections/CraftAndContact'
 import { Hello } from './components/sections/Hello'
 import { MindsetPoints } from './components/sections/MindsetPoints'
 import { TypedCaption } from './components/sections/TypedCaption'
-import { CHAPTERS } from './content/chapters'
+import { CHAPTERS, UI } from './content/chapters'
 import { keyIndex } from './journey/curves'
 import { measureStops, stopsToAnchors } from './journey/anchors'
 import { initScroll, scrollToId, setStops } from './journey/scroll'
@@ -96,7 +96,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#voice">
-        Skip the intro
+        {UI.skipIntro}
       </a>
       <div className="webgl" aria-hidden="true">
         <Suspense fallback={null}>

@@ -1,4 +1,4 @@
-import { CHAPTERS } from '../../content/chapters'
+import { CHAPTERS, UI } from '../../content/chapters'
 import { RichTitle } from '../RichTitle'
 
 export function Hello() {
@@ -7,7 +7,7 @@ export function Hello() {
     <section id="hello" className="chapter chapter--hello" aria-labelledby="hello-title">
       <div className="hello" data-reveal-group="hero">
         <p className="chapter__label hello__label" data-reveal="fade">
-          Chapter {c.number} — {c.label}
+          {UI.chapter} {c.number} — {c.label}
         </p>
         <h1 id="hello-title" className="hello__title" data-reveal="lines">
           <RichTitle text={c.title} />
@@ -20,7 +20,7 @@ export function Hello() {
           ))}
         </div>
         <div className="hello__scroll" data-reveal="fade" aria-hidden="true">
-          <span>Scroll</span>
+          <span>{UI.scroll}</span>
           <span className="hello__scroll-line" />
         </div>
       </div>

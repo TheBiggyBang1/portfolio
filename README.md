@@ -55,7 +55,8 @@ src/
     HelloScene … CraftScene.tsx   one component per chapter world
   components/         nav, chapter menu, preloader, progress indicator, reveals
     sections/         chapter sections, typed caption, agent pipeline, craft/contact/footer
-  content/chapters.ts ← all copy, links and placeholders
+  content/chapters.ts ← all copy (English + French), links and placeholders
+  content/lang.ts     current language (from the URL) and the t() helper
   styles/tokens.css   ← palette, type scale, spacing
   styles/global.css
 ```
@@ -139,6 +140,12 @@ In `config.ts`, colors are `ColorRef`s: a token name (`'jade'`), a hex
 
 All copy is in `src/content/chapters.ts`. Wrap italic key words in `*asterisks*`
 inside a title.
+
+- **Two languages:** English at `/`, French at `/fr/`, with an EN / FR switch in the
+  nav. Every text is written `t('English', 'Français')`, side by side. French
+  spacing (before `: ; ? !`, in `33 000`) is added automatically. The page title
+  and link-preview text for `/fr/` are in `FRENCH_HTML` in `vite.config.ts`; the
+  build fails if one of them no longer matches `index.html`.
 
 - **Links:** each chapter's `links` list. The first renders as the main button,
   any others as quieter text links beside it.

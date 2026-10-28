@@ -9,6 +9,11 @@ services:
     autoDeployTrigger: commit
     # Link previews use the site's onrender.com URL. With a custom domain, add a
     # SITE_URL environment variable (e.g. https://example.com) in the dashboard.
+    # The French site is dist/fr/index.html; /fr without the slash opens it too.
+    routes:
+      - type: rewrite
+        source: /fr
+        destination: /fr/index.html
     headers:
       # Hashed build files never change, so browsers can keep them for a year.
       - path: /assets/*

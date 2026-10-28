@@ -51,7 +51,7 @@ export function TypedCaption({ reduced }: { reduced: boolean }) {
         </span>
         <span>{DARIJA_SAMPLE.audioLabel}</span>
         <span className="caption__arrow">→</span>
-        <span>text</span>
+        <span>{DARIJA_SAMPLE.textLabel}</span>
       </div>
       <p className="caption__out" dir="rtl" lang="aeb" aria-label={DARIJA_SAMPLE.transcript}>
         <span aria-hidden="true">{chars.slice(0, shown).join('')}</span>

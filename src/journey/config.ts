@@ -285,7 +285,9 @@ export const MOTION = {
   fovKick: 4,
 }
 
-/** Agents in chapter 03, laid out along the logo's own path around the studio keyframe. */
-export const STUDIO_AGENTS = ['Script', 'Visuals', 'Voice', 'Animate', 'Publish'] as const
-/** Offsets in "keyframe segments" (1 = one chapter of travel) from the studio keyframe. */
+/**
+ * Gates for the five agents of chapter 03 (names in content/chapters.ts), laid out along
+ * the logo's own path around the studio keyframe. Offsets are in "keyframe segments"
+ * (1 = one chapter of travel) from the studio keyframe.
+ */
 export const STUDIO_NODE_OFFSETS = [-0.38, -0.19, 0, 0.19, 0.38] as const

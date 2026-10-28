@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
+import { UI } from '../content/chapters'
 import { lockScroll } from '../journey/scroll'
 import { journey } from '../journey/store'
 import { LogoMark } from './LogoMark'
@@ -103,7 +104,7 @@ export function Preloader({ reduced, onReveal }: Props) {
   if (gone) return null
 
   return (
-    <div ref={root} className="preloader" role="status" aria-live="polite" aria-label="Loading the story">
+    <div ref={root} className="preloader" role="status" aria-live="polite" aria-label={UI.loading}>
       <div className="preloader__bg" />
       <div ref={logo} className="preloader__logo">
         <LogoMark variant="gradient" />
@@ -112,7 +113,7 @@ export function Preloader({ reduced, onReveal }: Props) {
         <span className="preloader__caption">
           Mehdi Handous
           <br />
-          <em>a story in seven chapters</em>
+          <em>{UI.tagline}</em>
         </span>
         <span ref={count} className="preloader__count">
           000

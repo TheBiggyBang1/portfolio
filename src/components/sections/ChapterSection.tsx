@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { isPlaceholder, type Chapter } from '../../content/chapters'
+import { isPlaceholder, UI, type Chapter } from '../../content/chapters'
 import { RichTitle } from '../RichTitle'
 import { RollingText } from '../RollingText'
 
@@ -38,7 +38,7 @@ export function ChapterSection({ chapter, theme, children }: Props) {
     <section id={chapter.id} className="chapter" data-theme={theme} aria-labelledby={titleId}>
       <div className="chapter__content" data-anchor data-reveal-group>
         <p className="chapter__label" data-reveal="fade">
-          Chapter {chapter.number} — {chapter.label}
+          {UI.chapter} {chapter.number} — {chapter.label}
         </p>
         <h2 id={titleId} className="chapter__title" data-reveal="lines">
           <RichTitle text={chapter.title} />
@@ -54,7 +54,7 @@ export function ChapterSection({ chapter, theme, children }: Props) {
         {(chapter.tags || chapter.links) && (
           <div className="chapter__meta" data-reveal="fade">
             {chapter.tags && (
-              <ul className="tags" aria-label="Technologies">
+              <ul className="tags" aria-label={UI.technologies}>
                 {chapter.tags.map((t) => (
                   <li key={t}>{t}</li>
                 ))}

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { CHAPTERS } from '../content/chapters'
+import { CHAPTERS, UI } from '../content/chapters'
 import { lockScroll } from '../journey/scroll'
 
 interface Props {
@@ -53,7 +53,7 @@ export function ChapterMenu({ open, onClose }: Props) {
       className={`menu${open ? ' is-open' : ''}`}
       role="dialog"
       aria-modal="true"
-      aria-label="Chapters"
+      aria-label={UI.chapters}
       aria-hidden={!open}
       inert={!open}
     >

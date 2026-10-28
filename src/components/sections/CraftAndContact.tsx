@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
-import { CHAPTERS, GALLERY, isPlaceholder, PROFILE } from '../../content/chapters'
+import { CHAPTERS, CONTACT, GALLERY, isPlaceholder, PROFILE, UI } from '../../content/chapters'
 import { journey } from '../../journey/store'
 import { LogoMark } from '../LogoMark'
+import { RichTitle } from '../RichTitle'
 import { RollingText } from '../RollingText'
 import { ChapterSection } from './ChapterSection'
 
@@ -29,7 +30,7 @@ export function CraftAndContact() {
     <>
       <ChapterSection chapter={CHAPTERS[6]} />
 
-      <section id="gallery" className="gallery-section" aria-label="Selected craft work">
+      <section id="gallery" className="gallery-section" aria-label={UI.gallery}>
         <ul className="gallery" data-anchor data-reveal-group>
           {GALLERY.map((item, i) => (
             <li key={item.title} className={`tile tile--${item.fit}`} data-reveal="fade" style={{ ['--i' as string]: i }}>
@@ -49,13 +50,13 @@ export function CraftAndContact() {
       <section id="contact" className="contact" aria-labelledby="contact-title">
         <div className="contact__inner" data-reveal-group>
           <p className="chapter__label" data-reveal="fade">
-            Say hello
+            {CONTACT.label}
           </p>
           <h2 id="contact-title" className="contact__title" data-reveal="lines">
-            Let’s make something <em>together</em>.
+            <RichTitle text={CONTACT.title} />
           </h2>
           <p className="contact__text" data-reveal="lines">
-            Got a project, a tricky problem, or just want to talk AI and design? I’d genuinely love to hear from you.
+            {CONTACT.text}
           </p>
           <div className="contact__actions" data-reveal="fade">
             <a
@@ -64,7 +65,7 @@ export function CraftAndContact() {
               data-placeholder={emailPlaceholder ? PROFILE.email : undefined}
               title={emailPlaceholder ? 'Placeholder: replace [EMAIL] in src/content/chapters.ts' : undefined}
             >
-              <RollingText text="Write to me" />
+              <RollingText text={CONTACT.write} />
             </a>
             <SocialLink href={PROFILE.linkedin} label="LinkedIn" />
             <SocialLink href={PROFILE.github} label="GitHub" />
@@ -93,12 +94,12 @@ export function Footer() {
     <>
       <footer className="footer">
         <div ref={rest} className="footer__rest" data-logo-rest>
-          <LogoMark variant="gradient" title="Mehdi Handous logo" />
+          <LogoMark variant="gradient" title={UI.logo} />
         </div>
         <div className="footer__bar">
           <span>© {new Date().getFullYear()} {PROFILE.name}</span>
           <a href="#hello" className="footer__top">
-            <RollingText text="Back to the beginning ↑" />
+            <RollingText text={UI.backToTop} />
           </a>
         </div>
       </footer>
