@@ -34,7 +34,7 @@ function languageLinks(url: string): Plugin {
 const FRENCH_HTML: [string, string][] = [
   ['<html lang="en">', '<html lang="fr">'],
   ['content="en_US"', 'content="fr_FR"'],
-  ['Mehdi Handous — AI engineer & web designer', 'Mehdi Handous — ingénieur IA & web designer'],
+  ['Mehdi Handous', 'Mehdi Handous'],
   [
     'Mehdi Handous, 25, AI engineering student who loves web design. A scroll-driven story through speech, agents, vision and craft.',
     'Mehdi Handous, 25 ans, étudiant en ingénierie IA passionné de web design. Une histoire à faire défiler, entre voix, agents, vision et création.',
