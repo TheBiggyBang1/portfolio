@@ -1,12 +1,12 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef, useState } from 'react'
-import { DARIJA_SAMPLE } from '../../content/chapters'
+import { DERJA_SAMPLE } from '../../content/chapters'
 
-/** "Darija → text": a transcript types itself when the caption scrolls into view. */
+/** "Derja → text": a transcript types itself when the caption scrolls into view. */
 export function TypedCaption({ reduced }: { reduced: boolean }) {
   const root = useRef<HTMLElement>(null)
-  const chars = Array.from(DARIJA_SAMPLE.transcript)
+  const chars = Array.from(DERJA_SAMPLE.transcript)
   const [shown, setShown] = useState(reduced ? chars.length : 0)
 
   useEffect(() => {
@@ -49,16 +49,16 @@ export function TypedCaption({ reduced }: { reduced: boolean }) {
             <span key={i} style={{ ['--i' as string]: i }} />
           ))}
         </span>
-        <span>{DARIJA_SAMPLE.audioLabel}</span>
+        <span>{DERJA_SAMPLE.audioLabel}</span>
         <span className="caption__arrow">→</span>
-        <span>{DARIJA_SAMPLE.textLabel}</span>
+        <span>{DERJA_SAMPLE.textLabel}</span>
       </div>
-      <p className="caption__out" dir="rtl" lang="aeb" aria-label={DARIJA_SAMPLE.transcript}>
+      <p className="caption__out" dir="rtl" lang="aeb" aria-label={DERJA_SAMPLE.transcript}>
         <span aria-hidden="true">{chars.slice(0, shown).join('')}</span>
         <span className="caption__caret" aria-hidden="true" />
       </p>
       <figcaption className="caption__gloss">
-        {DARIJA_SAMPLE.gloss} <span className="caption__note">{DARIJA_SAMPLE.note}</span>
+        {DERJA_SAMPLE.gloss} <span className="caption__note">{DERJA_SAMPLE.note}</span>
       </figcaption>
     </figure>
   )

@@ -54,16 +54,16 @@ export const CHAPTERS: Chapter[] = [
     id: 'voice',
     number: '02',
     label: t('Voice', 'Voix'),
-    line: t('Teaching Whisper to understand Tunisian Darija.', 'Apprendre à Whisper à comprendre le darija tunisien.'),
-    title: t('Teaching machines to *listen* to Darija', 'Apprendre aux machines à *écouter* le darija'),
+    line: t('Teaching Whisper to understand Tunisian Derja.', 'Apprendre à Whisper à comprendre le derja tunisien.'),
+    title: t('Teaching machines to *listen* to Derja', 'Apprendre aux machines à *écouter* le derija'),
     body: t(
       [
-        "Tunisian Darija is Arabic with French and a bit of English woven right in. It's how we actually talk, and most speech models simply don't get it.",
-        "So I fine-tuned OpenAI's Whisper on Darija speech, teaching it to hear the language the way people here really speak it. On a held-out test set, the word error rate fell from 79.1% to 30.4%.",
+        "Tunisian DERJA is Arabic with French and a bit of English woven right in. It's how we actually talk, and most speech models simply don't get it.",
+        "So I fine-tuned OpenAI's Whisper on DERJA speech, teaching it to hear the language the way people here really speak it. On a held-out test set, the word error rate fell from 79.1% to 30.4%.",
       ],
       [
-        'Le darija tunisien, c’est de l’arabe mêlé de français et d’un peu d’anglais. C’est notre façon de parler au quotidien, et la plupart des modèles vocaux n’y comprennent tout simplement rien.',
-        'J’ai donc affiné le modèle Whisper d’OpenAI sur de la parole en darija, pour qu’il entende la langue telle qu’on la parle vraiment ici. Sur un jeu de test indépendant, le taux d’erreur par mot est passé de 79,1 % à 30,4 %.',
+        'Le derja tunisien, c’est de l’arabe mêlé de français et d’un peu d’anglais. C’est notre façon de parler au quotidien, et la plupart des modèles vocaux n’y comprennent tout simplement rien.',
+        'J’ai donc affiné le modèle Whisper d’OpenAI sur de la parole en derja, pour qu’il entende la langue telle qu’on la parle vraiment ici. Sur un jeu de test indépendant, le taux d’erreur par mot est passé de 79,1 % à 30,4 %.',
       ],
     ),
     tags: ['OpenAI Whisper', 'Fine-tuning', 'CTranslate2'],
@@ -238,13 +238,13 @@ export const GALLERY: GalleryItem[] = [
 ]
 
 /** A real line from the model's held-out test set (its output matched the reference exactly). */
-export const DARIJA_SAMPLE = {
-  audioLabel: t('Darija audio', 'Audio en darija'),
+export const DERJA_SAMPLE = {
+  audioLabel: t('Derja audio', 'Audio en derja'),
   textLabel: t('text', 'texte'),
   transcript: 'كيفاش أحنا on va changer le process',
   gloss: t(
-    'Darija and French in one sentence, transcribed word for word.',
-    'Darija et français dans une même phrase, transcrits mot à mot.',
+    'DERJA and French in one sentence, transcribed word for word.',
+    'DERJA et français dans une même phrase, transcrits mot à mot.',
   ),
   note: t('Real test-set output', 'Vraie sortie du jeu de test'),
 }

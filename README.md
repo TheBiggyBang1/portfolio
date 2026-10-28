@@ -151,7 +151,7 @@ inside a title.
   any others as quieter text links beside it.
 - **Results** come from the published model cards: Whisper WER 79.1% → 30.4%
   (CTranslate2 version, held-out test set); CheXNet mean AUROC 0.77 over 14 findings.
-- **Darija caption** (`DARIJA_SAMPLE`): a real line from the model's test set, where
+- **Derja caption** (`DERJA_SAMPLE`): a real line from the model's test set, where
   its output matched the reference exactly.
 - **Gallery** (`GALLERY`): title, type, link, image in `public/gallery/`, and `fit`:
   `cover` for renders and photos, `contain` for logos and packshots. Keep images
