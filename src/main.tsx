@@ -8,7 +8,7 @@ import { LANG } from './content/lang'
 
 // The built /fr/ page already says this; the dev server serves one index.html for both.
 document.documentElement.lang = LANG
-if (LANG === 'fr') document.title = 'Mehdi Handous — ingénieur IA & web designer'
+if (LANG === 'fr') document.title = 'Mehdi Handous'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
