@@ -55,11 +55,11 @@ export const CHAPTERS: Chapter[] = [
     number: '02',
     label: t('Voice', 'Voix'),
     line: t('Teaching Whisper to understand Tunisian Derja.', 'Apprendre à Whisper à comprendre le derja tunisien.'),
-    title: t('Teaching machines to *listen* to Derja', 'Apprendre aux machines à *écouter* le derija'),
+    title: t('Teaching machines to *listen* to Derja', 'Apprendre aux machines à *écouter* le derja'),
     body: t(
       [
-        "Tunisian DERJA is Arabic with French and a bit of English woven right in. It's how we actually talk, and most speech models simply don't get it.",
-        "So I fine-tuned OpenAI's Whisper on DERJA speech, teaching it to hear the language the way people here really speak it. On a held-out test set, the word error rate fell from 79.1% to 30.4%.",
+        "Tunisian Derja is Arabic with French and a bit of English woven right in. It's how we actually talk, and most speech models simply don't get it.",
+        "So I fine-tuned OpenAI's Whisper on Derja speech, teaching it to hear the language the way people here really speak it. On a held-out test set, the word error rate fell from 79.1% to 30.4%.",
       ],
       [
         'Le derja tunisien, c’est de l’arabe mêlé de français et d’un peu d’anglais. C’est notre façon de parler au quotidien, et la plupart des modèles vocaux n’y comprennent tout simplement rien.',
@@ -243,8 +243,8 @@ export const DERJA_SAMPLE = {
   textLabel: t('text', 'texte'),
   transcript: 'كيفاش أحنا on va changer le process',
   gloss: t(
-    'DERJA and French in one sentence, transcribed word for word.',
-    'DERJA et français dans une même phrase, transcrits mot à mot.',
+    'Derja and French in one sentence, transcribed word for word.',
+    'Derja et français dans une même phrase, transcrits mot à mot.',
   ),
   note: t('Real test-set output', 'Vraie sortie du jeu de test'),
 }
