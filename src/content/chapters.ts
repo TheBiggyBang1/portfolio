@@ -99,7 +99,7 @@ export const CHAPTERS: Chapter[] = [
     number: '04',
     label: 'Vision',
     line: t('Spotting 14 findings in chest X-rays.', 'Repérer 14 anomalies sur des radios du thorax.'),
-    title: t('Reading lungs, *one* X-ray at a time', 'Lire les poumons, *une* radio à la fois'),
+    title: t('Scanning lungs, *one* X-ray at a time', 'Scanner les poumons, *une* radio à la fois'),
     body: t(
       [
         'I trained a CheXNet-style DenseNet-121 to read chest X-rays and flag 14 different findings, learning from more than 33,000 images.',
@@ -107,7 +107,7 @@ export const CHAPTERS: Chapter[] = [
       ],
       [
         'J’ai entraîné un DenseNet-121 de type CheXNet à lire des radiographies thoraciques et à signaler 14 anomalies différentes, en apprenant sur plus de 33 000 images.',
-        'L’imagerie médicale m’a appris la patience : des données propres, une validation honnête, et ne jamais oublier qu’il y a une vraie personne derrière chaque cliché. Le modèle atteint une AUROC moyenne de 0,77 sur les 14, et il est conçu pour la recherche, pas pour le diagnostic.',
+        'L’imagerie médicale m’a appris la patience : des données propres, une validation honnête, et ne jamais oublier qu’il y a une vraie personne derrière chaque cliché. Le modèle atteint une AUROC moyenne de 0,77 sur les 14 classes d’anomalies, et il est conçu pour la recherche, pas pour le diagnostic.',
       ],
     ),
     tags: t(
@@ -128,7 +128,7 @@ export const CHAPTERS: Chapter[] = [
         'Over time it grew into a small collection of plugins and agents. One of them, ScrollProof, scrolls through a site like a real visitor and tells me exactly which animation broke, and why.',
       ],
       [
-        'Si quelque chose me ralentit deux fois, je construis un outil pour ça. C’est à peu près la règle.',
+        'Si quelque chose me ralentit, je construis un outil pour ça. C’est à peu près la règle.',
         'Avec le temps, c’est devenu une petite collection de plugins et d’agents. L’un d’eux, ScrollProof, parcourt un site comme un vrai visiteur et me dit exactement quelle animation a cassé, et pourquoi.',
       ],
     ),
@@ -206,19 +206,19 @@ export interface GalleryItem {
 
 export const GALLERY: GalleryItem[] = [
   {
-    title: '5Sens Advertising',
+    title: '5 Sens Advertising',
     kind: t('Advertising campaign', 'Campagne publicitaire'),
     href: 'https://www.youtube.com/watch?v=np8BgdqZXBw',
     cta: t('Watch the ad', 'Voir la pub'),
     image: '/gallery/5sens.webp',
     alt: t(
-      'The 5Sens Advertising logo glowing above a rooftop pool at night',
-      'Le logo de 5Sens Advertising qui brille au-dessus d’une piscine sur un toit, la nuit',
+      'The 5 Sens Advertising logo glowing above a rooftop pool at night',
+      'Le logo de 5 Sens Advertising qui brille au-dessus d’une piscine sur un toit, la nuit',
     ),
     fit: 'cover',
   },
   {
-    title: 'KillerGel',
+    title: 'Killer Gel',
     kind: t('Advertising campaign', 'Campagne publicitaire'),
     href: 'https://www.youtube.com/watch?v=Rf80hWADEcg',
     cta: t('Watch the ad', 'Voir la pub'),
@@ -255,7 +255,7 @@ export const CONTACT = {
   title: t('Let’s make something *together*.', 'Créons quelque chose *ensemble*.'),
   text: t(
     'Got a project, a tricky problem, or just want to talk AI and design? I’d genuinely love to hear from you.',
-    'Un projet, un problème épineux, ou juste envie de parler IA et design ? J’adorerais avoir de vos nouvelles.',
+    'Un projet, un problème épineux, ou juste envie de parler IA et design ?Parlons-en!',
   ),
   write: t('Write to me', 'Écrivez-moi'),
 }
