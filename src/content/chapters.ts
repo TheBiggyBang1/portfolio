@@ -9,7 +9,7 @@ import { t } from './lang'
 
 export const PROFILE = {
   name: 'Mehdi Handous',
-  email: 'mehdihandous1@gmail.com',
+  email: 'contact@mehdihandous.com',
   linkedin: 'https://www.linkedin.com/in/mehdi-handous/',
   github: 'https://github.com/TheBiggyBang1',
 }
